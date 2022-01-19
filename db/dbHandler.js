@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('',
+mongoose.connect('mongodb+srv://minhthanh:<Mot23456>@cluster0.mdf92.mongodb.net/test',
     { useNewUrlParser: true,
         useUnifiedTopology: true,
         useCreateIndex: true },
