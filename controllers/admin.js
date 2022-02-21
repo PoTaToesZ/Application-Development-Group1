@@ -23,7 +23,7 @@ router.post('/addUser',(req,res)=>{
         password: pass
     }
     insertObject("Users",objectToInsert)
-    res.render('adminIndex')
+    res.render('/adminIndex')
 })
 
 module.exports = router;
