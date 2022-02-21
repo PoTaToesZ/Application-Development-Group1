@@ -35,7 +35,7 @@ app.post('/login',async (req,res)=>{
             name: name,
             role: role
         }
-        console.log("Ban dang dang nhap voi quyen la: " + role)
+        console.log("You are login with " + role)
         res.redirect('/')
     }
 })
