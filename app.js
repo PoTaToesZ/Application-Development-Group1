@@ -49,6 +49,26 @@ function requiresLogin(req,res,next){
     }
 }
 
+app.get("/index/search", async (req, res) => {
+
+    var keyword = req.query['txtSearch'];
+    var category = req.query['catSearch'];
+
+    console.log(keyword);
+    var result = await searchAll("Products", keyword, category);
+    var categories = await getAll("Categories");
+
+    // Sort: sort({name:1, stock:1}) - 1 = ascending ; - 1 = descending
+
+    if (result.length == 0) {
+        console.log("Zero Result was found!");
+        res.render("index", { products: result, cat: categories , errMessage: "There was no matching result!" });
+    }
+    else {
+        res.render("index", { products: result, cat: categories });
+    }
+})
+
 const PORT = process.env.PORT || 5000
 app.listen(PORT)
 console.log("Server is running! " + PORT)
